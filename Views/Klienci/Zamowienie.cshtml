@@ -1,0 +1,25 @@
+﻿@using Projekt.Models
+@model List<ZamowienieModel>
+@{
+    ViewBag.Title = "Zamowienie";
+}
+
+<h2>Zamowienie</h2>
+<form method="get" action="/Klienci/Dodaj">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nazwa dania</th>
+            <th>Ilość</th>
+            <th>Cena</th>
+            <th></th>
+        </tr>
+        @{int id = 0; }
+        @foreach (ZamowienieModel klient in Model)
+        {
+
+        }
+        <a href="/Klienci/Edytuj">Dodaj</a>
+    </table>
+</form>
+

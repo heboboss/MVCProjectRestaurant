@@ -1,0 +1,32 @@
+﻿@using Projekt.Models
+@model List<KlientModel>
+@{
+    ViewBag.Title = "Katalog klientów";
+}
+
+<h2>Lista klientów</h2>
+<form method="get" action="/Klienci/Dodaj">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Data obsługi</th>
+            <th>Zamoówienie</th>
+            <th></th>
+        </tr>
+        @{int id = 0; }
+        @foreach (KlientModel klient in Model)
+        {
+            <tr>
+                <td>@id</td>
+                <td>@klient.imie</td>
+                <td>@klient.nazwisko</td>
+                <td>@klient.data</td>
+                <td><a href="/Klienci/Zamowienie?id=@(id++)"</td>
+                <td><a href="/Klienci/Edytuj?id=@(id++)">Edycja</a></td>
+            </tr>
+        }
+        <a href="/Klienci/Edytuj">Dodaj</a>
+    </table>
+</form>

@@ -1,0 +1,29 @@
+﻿@using Projekt.Models
+@model List<MagazynModel>
+@{
+    ViewBag.Title = "Lista produktów";
+}
+
+<h2>Lista magazynowa produktów</h2>
+<form method="get" action="/Magazyn/Dodaj">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nazwa</th>
+            <th>Ilość</th>
+            <th></th>
+        </tr>
+        @{int id = 0; }
+        @foreach (MagazynModel skladnik in Model)
+        {
+            <tr>
+                <td>@id</td>
+                <td>@skladnik.nazwaSkladnika</td>
+                <td>@skladnik.waga</td>
+                <td><a href="/Magazyn/Edytuj?id=@(id++)">Edycja</a></td>
+            </tr>
+        }
+        <a href="/Magazyn/Edytuj">Dodaj</a>
+    </table>
+</form>
+

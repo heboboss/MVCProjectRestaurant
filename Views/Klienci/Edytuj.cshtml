@@ -1,0 +1,38 @@
+﻿@model Projekt.Models.KlientModel
+@{
+    ViewBag.Title = "Edytuj";
+}
+
+<h2>Edytuj</h2>
+<form method="post">
+    <fieldset>
+        <legend>Edycja Klienta</legend>
+        <div class="editor-label">
+            Imię
+        </div>
+        <div class="editor-field">
+            <input name="klient.imie" value="@Model.imie" />
+        </div>
+
+        <div class="editor-label">
+            Nazwisko
+        </div>
+        <div class="editor-field">
+            <input name="klient.nazwisko" value="@Model.nazwisko" />
+        </div>
+
+        <div class="editor-label">
+            Data zamówienia
+        </div>
+        <div class="editor-field">
+            <input name="klient.data" value="@Model.data" />
+        </div>
+        
+        <p><input type="submit" value="Dodaj" /></p>
+
+    </fieldset>
+</form>
+
+<div>
+    @Html.ActionLink("Back", "Index");
+</div>

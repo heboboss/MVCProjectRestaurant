@@ -1,0 +1,31 @@
+﻿@model Projekt.Models.MagazynModel
+@{
+    ViewBag.Title = "Edytuj";
+}
+
+<h2>Edytuj</h2>
+<form method="post">
+    <fieldset>
+        <legend>Edycja składnika</legend>
+        <div class="editor-label">
+            Imię
+        </div>
+        <div class="editor-field">
+            <input name="skladnik.nazwaSkladnika" value="@Model.nazwaSkladnika" />
+        </div>
+
+        <div class="editor-label">
+            Nazwisko
+        </div>
+        <div class="editor-field">
+            <input name="skladnik.waga" value="@Model.waga" />
+        </div>
+
+        <p><input type="submit" value="Dodaj" /></p>
+
+    </fieldset>
+</form>
+
+<div>
+    @Html.ActionLink("Back", "Index");
+</div>
