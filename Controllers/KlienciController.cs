@@ -12,6 +12,7 @@ namespace Projekt.Controllers
     {
         static List<KlientModel> listaKlientow = new List<KlientModel>();
         static List<List<ZamowienieModel>> listaZamowien = new List<List<ZamowienieModel>>();
+        static int aktualneZamowienie;
 
         // GET: Klienci
         public ActionResult Index()
@@ -42,7 +43,29 @@ namespace Projekt.Controllers
 
         public ActionResult Zamowienie(int ? id)
         {
+            aktualneZamowienie = (int)id;
+            ViewBag.id = (int)id;
             return View(listaZamowien[(int)id]);
+        }
+
+        [HttpGet]
+        public ActionResult EdytujZamowienie(int? idZam)
+        {
+            return View(idZam != null
+                ? listaZamowien[aktualneZamowienie][(int)idZam]
+                : new ZamowienieModel());
+        }
+
+        [HttpPost]
+        public ActionResult EdytujZamowienie(int? idZam, ZamowienieModel zamowienie)
+        {
+            if (idZam == null)
+            {
+                listaZamowien[aktualneZamowienie].Add(zamowienie);
+            }
+            else
+                listaZamowien[aktualneZamowienie][(int)idZam] = zamowienie;
+            return RedirectToAction("Index");
         }
 
 

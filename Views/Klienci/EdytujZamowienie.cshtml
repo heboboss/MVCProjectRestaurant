@@ -1,0 +1,39 @@
+﻿@model Projekt.Models.ZamowienieModel
+@{
+    ViewBag.Title = "EdytujZamowienie";
+}
+
+<h2>Edytuj Zamowienie</h2>
+<form method="post">
+    <fieldset>
+        <legend>Edycja Zamowienia</legend>
+        <div class="editor-label">
+            Nazwa Dania
+        </div>
+        <div class="editor-field">
+            <input name="zamowienie.nazwaDania" value="@Model.nazwaDania" />
+        </div>
+
+        <div class="editor-label">
+            Ilość
+        </div>
+        <div class="editor-field">
+            <input name="zamowienie.ilosc" value="@Model.ilosc" />
+        </div>
+
+        <div class="editor-label">
+            Cena
+        </div>
+        <div class="editor-field">
+            <input name="zamowienie.cena" value="@Model.cena" />
+        </div>
+
+        <p><input type="submit" value="Dodaj" /></p>
+
+    </fieldset>
+</form>
+
+<div>
+    @Html.ActionLink("Back", "Index");
+</div>
+

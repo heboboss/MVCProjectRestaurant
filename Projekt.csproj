@@ -133,6 +133,7 @@
     <Content Include="Views\Magazyn\Index.cshtml" />
     <Content Include="Views\Magazyn\Edytuj.cshtml" />
     <Content Include="Views\Klienci\Zamowienie.cshtml" />
+    <Content Include="Views\Klienci\EdytujZamowienie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />

@@ -12,7 +12,7 @@
             <th>Imię</th>
             <th>Nazwisko</th>
             <th>Data obsługi</th>
-            <th>Zamoówienie</th>
+            <th>Zamówienie</th>
             <th></th>
         </tr>
         @{int id = 0; }
@@ -23,7 +23,7 @@
                 <td>@klient.imie</td>
                 <td>@klient.nazwisko</td>
                 <td>@klient.data</td>
-                <td><a href="/Klienci/Zamowienie?id=@(id++)"</td>
+                <td><a href="/Klienci/Zamowienie?id=@(id)">Zam</a></td>
                 <td><a href="/Klienci/Edytuj?id=@(id++)">Edycja</a></td>
             </tr>
         }

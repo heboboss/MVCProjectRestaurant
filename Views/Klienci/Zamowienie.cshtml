@@ -14,12 +14,19 @@
             <th>Cena</th>
             <th></th>
         </tr>
-        @{int id = 0; }
-        @foreach (ZamowienieModel klient in Model)
+        @{int id = ViewBag.id;
+            int idZam = 0; }
+        @foreach (ZamowienieModel zamowienie in Model)
         {
-
+            <tr>
+                <td>@idZam</td>
+                <td>@zamowienie.nazwaDania</td>
+                <td>@zamowienie.ilosc</td>
+                <td>@zamowienie.cena</td>
+                <td><a href="/Klienci/EdytujZamowienie?id=@(id)&idZam=@(idZam++)">Edycja</a></td>
+            </tr>
         }
-        <a href="/Klienci/Edytuj">Dodaj</a>
+        <a href="/Klienci/EdytujZamowienie">Dodaj</a>
     </table>
 </form>
 
