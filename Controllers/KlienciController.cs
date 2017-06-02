@@ -41,31 +41,55 @@ namespace Projekt.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Usun(int? id)
+        {
+            if (id != null)
+            {
+                listaKlientow.RemoveAt((int)id);
+                listaZamowien.RemoveAt((int)id);
+            }
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Zamowienie(int ? id)
         {
-            aktualneZamowienie = (int)id;
             ViewBag.id = (int)id;
+            aktualneZamowienie = (int)id;
             return View(listaZamowien[(int)id]);
         }
 
         [HttpGet]
-        public ActionResult EdytujZamowienie(int? idZam)
+        public ActionResult EdytujZamowienie(int? id ,int? idZam)
         {
+            ViewBag.id = (int)id;
             return View(idZam != null
                 ? listaZamowien[aktualneZamowienie][(int)idZam]
                 : new ZamowienieModel());
         }
 
         [HttpPost]
-        public ActionResult EdytujZamowienie(int? idZam, ZamowienieModel zamowienie)
+        public ActionResult EdytujZamowienie(int? id, int? idZam, ZamowienieModel zamowienie)
         {
+            ViewBag.id = (int)id;
             if (idZam == null)
             {
                 listaZamowien[aktualneZamowienie].Add(zamowienie);
             }
             else
                 listaZamowien[aktualneZamowienie][(int)idZam] = zamowienie;
-            return RedirectToAction("Index");
+            return RedirectToAction("Zamowienie", new { id = aktualneZamowienie });
+        }
+
+        [HttpGet]
+        public ActionResult UsunZamowienie(int? idZam)
+        {
+            if(idZam != null)
+            {
+                listaZamowien[aktualneZamowienie].RemoveAt((int)idZam);
+            }
+
+            return RedirectToAction("Zamowienie", new { id = aktualneZamowienie });
         }
 
 

@@ -1,19 +1,19 @@
 ﻿@using Projekt.Models
 @model List<KlientModel>
 @{
-    ViewBag.Title = "Katalog klientów";
+    ViewBag.Title = "Archiwum klientów";
 }
 
 <h2>Lista klientów</h2>
-<form method="get" action="/Klienci/Dodaj">
-    <table>
+    <table class="table table-hover">
         <tr>
             <th>Id</th>
             <th>Imię</th>
             <th>Nazwisko</th>
             <th>Data obsługi</th>
-            <th>Zamówienie</th>
-            <th></th>
+            <th>Zobacz zamówienie</th>
+            <th>Edytuj</th>
+            <th>Usuń</th>
         </tr>
         @{int id = 0; }
         @foreach (KlientModel klient in Model)
@@ -23,10 +23,11 @@
                 <td>@klient.imie</td>
                 <td>@klient.nazwisko</td>
                 <td>@klient.data</td>
-                <td><a href="/Klienci/Zamowienie?id=@(id)">Zam</a></td>
-                <td><a href="/Klienci/Edytuj?id=@(id++)">Edycja</a></td>
+                <td><a href="/Klienci/Zamowienie?id=@(id)" class="btn btn-warning" role="button">Pokaż</a></td>
+                <td><a href="/Klienci/Edytuj?id=@(id)" class="btn btn-warning" role="button">Edycja</a></td>
+                <td><a href="/Klienci/Usun?id=@(id++)" class="btn btn-warning" role="button">Usuń</a></td>
             </tr>
         }
-        <a href="/Klienci/Edytuj">Dodaj</a>
     </table>
-</form>
+
+<a href="/Klienci/Edytuj" class="btn btn-warning" role="button">Dodaj klienta</a>

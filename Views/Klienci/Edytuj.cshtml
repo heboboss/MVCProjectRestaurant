@@ -3,10 +3,9 @@
     ViewBag.Title = "Edytuj";
 }
 
-<h2>Edytuj</h2>
+<h2>Edytuj klienta</h2>
 <form method="post">
     <fieldset>
-        <legend>Edycja Klienta</legend>
         <div class="editor-label">
             Imię
         </div>
@@ -27,12 +26,13 @@
         <div class="editor-field">
             <input name="klient.data" value="@Model.data" />
         </div>
+        <br />
         
-        <p><input type="submit" value="Dodaj" /></p>
+        <p>
+            <input type="submit" class="btn btn-warning" value="OK">
+            <a href="/Klienci/Index" class="btn btn-warning" role="button">Powrót</a>
+        </p>
 
     </fieldset>
 </form>
 
-<div>
-    @Html.ActionLink("Back", "Index");
-</div>

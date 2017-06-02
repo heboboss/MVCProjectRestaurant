@@ -4,18 +4,21 @@
     ViewBag.Title = "Zamowienie";
 }
 
-<h2>Zamowienie</h2>
-<form method="get" action="/Klienci/Dodaj">
-    <table>
+@{int id = ViewBag.id; 
+int idZam = 0; }
+
+<h2>Zamowienie klienta o id @id</h2>
+    <table class="table table-hover">
         <tr>
             <th>Id</th>
             <th>Nazwa dania</th>
             <th>Ilość</th>
             <th>Cena</th>
-            <th></th>
+            <th>Edytuj zamówienie</th>
+            <th>Usuń zamówienie</th>
         </tr>
-        @{int id = ViewBag.id;
-            int idZam = 0; }
+        
+            
         @foreach (ZamowienieModel zamowienie in Model)
         {
             <tr>
@@ -23,10 +26,15 @@
                 <td>@zamowienie.nazwaDania</td>
                 <td>@zamowienie.ilosc</td>
                 <td>@zamowienie.cena</td>
-                <td><a href="/Klienci/EdytujZamowienie?id=@(id)&idZam=@(idZam++)">Edycja</a></td>
+                <td><a href="/Klienci/EdytujZamowienie?id=@(id)&idZam=@idZam" class="btn btn-warning" role="button">
+                        Edycja
+                    </a></td>
+                <td><a href="/Klienci/UsunZamowienie?idZam=@(idZam++)" class="btn btn-warning" role="button">Usuń</a></td>
             </tr>
         }
-        <a href="/Klienci/EdytujZamowienie">Dodaj</a>
+
     </table>
-</form>
+
+<a href="/Klienci/EdytujZamowienie?id=@id" class="btn btn-warning" role="button">Dodaj zamowienie</a>
+<a href="/Klienci/Index" class="btn btn-warning" role="button">Powrót</a>
 

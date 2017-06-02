@@ -3,29 +3,28 @@
     ViewBag.Title = "Edytuj";
 }
 
-<h2>Edytuj</h2>
+<h2>Edytuj produkt w magazynie</h2>
 <form method="post">
     <fieldset>
-        <legend>Edycja składnika</legend>
         <div class="editor-label">
-            Imię
+            Nazwa produktu
         </div>
         <div class="editor-field">
             <input name="skladnik.nazwaSkladnika" value="@Model.nazwaSkladnika" />
         </div>
 
         <div class="editor-label">
-            Nazwisko
+            Ilość produktu
         </div>
         <div class="editor-field">
             <input name="skladnik.waga" value="@Model.waga" />
         </div>
 
-        <p><input type="submit" value="Dodaj" /></p>
+        <br />
+        <p>
+            <input type="submit" class="btn btn-warning" value="OK">
+            <a href="/Magazyn/Index" class="btn btn-warning" role="button">Powrót</a>
+        </p>
 
     </fieldset>
 </form>
-
-<div>
-    @Html.ActionLink("Back", "Index");
-</div>

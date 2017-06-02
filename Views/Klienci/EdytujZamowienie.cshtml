@@ -6,7 +6,6 @@
 <h2>Edytuj Zamowienie</h2>
 <form method="post">
     <fieldset>
-        <legend>Edycja Zamowienia</legend>
         <div class="editor-label">
             Nazwa Dania
         </div>
@@ -28,12 +27,16 @@
             <input name="zamowienie.cena" value="@Model.cena" />
         </div>
 
-        <p><input type="submit" value="Dodaj" /></p>
+        <br />
+        <p>
+            <input type="submit" class="btn btn-warning" value="OK">
+            <a href="@Url.Action("Zamowienie", "Klienci", new { id = ViewBag.id })" class="btn btn-warning" role="button">
+                Powrót
+            </a>
+        </p>
 
     </fieldset>
 </form>
 
-<div>
-    @Html.ActionLink("Back", "Index");
-</div>
+
 

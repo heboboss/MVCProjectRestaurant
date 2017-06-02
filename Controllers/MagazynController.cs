@@ -34,5 +34,14 @@ namespace Projekt.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Usun(int? id)
+        {
+            if (id != null)
+            {
+                listaSkladnikow.RemoveAt((int)id);
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
